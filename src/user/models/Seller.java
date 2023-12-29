@@ -21,6 +21,9 @@ public class Seller extends User {
                 data.get("email"), data.get("password"));
     }
 
+    /**
+     * Retrieves the list of products associated with the seller.
+     */
     public List<Product> getProducts(){
         Connection connection = db.DatabaseUtils.getDbConnection();
         List <Product> products = new ArrayList<>();

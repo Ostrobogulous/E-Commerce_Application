@@ -72,6 +72,9 @@ public abstract class Product {
         return "Product";
     }
 
+    /**
+     * Updates product attributes based on the provided data.
+     */
     public void update(Map<String, String> data) {
         if (data.containsKey("name")) {
             setName(data.get("name"));
@@ -84,6 +87,10 @@ public abstract class Product {
         }
     }
 
+    /**
+     * Saves the product to the database. Inserts a new record if the product is new,
+     * otherwise updates the existing record.
+     */
     public void save() {
         Connection connection = db.DatabaseUtils.getDbConnection();
         try {
@@ -124,6 +131,9 @@ public abstract class Product {
         }
     }
 
+    /**
+     * Deletes the product from the database.
+     */
     public void delete() {
         Connection connection = db.DatabaseUtils.getDbConnection();
 
@@ -148,6 +158,9 @@ public abstract class Product {
         }
     }
 
+    /**
+     * Changes the quantity (stock) of the product in the database.
+     */
     public void changeQuantity(int quantity) {
         Connection connection = db.DatabaseUtils.getDbConnection();
         try {
@@ -170,9 +183,15 @@ public abstract class Product {
         }
     }
 
-    public void displayInfo() {
-    }
+    /**
+     * Displays information about the product.
+     * (To be implemented by subclasses)
+     */
+    public abstract void displayInfo();
 
+    /**
+     * Retrieves a product by its ID from the database.
+     */
     public static Product getProductById(int productId) throws Exception {
         Connection connection = db.DatabaseUtils.getDbConnection();
 

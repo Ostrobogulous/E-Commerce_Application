@@ -11,8 +11,16 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * Manages product-related operations such as adding, updating, deleting,
+ * and searching for products based on different criteria.
+ */
 public class ProductManagement {
 
+    /**
+     * Adds a new product based on the specified category.
+     */
     public void addProduct(int userId, Map<String, String> data, Category category) {
         data.put("userId", Integer.toString(userId));
         if (category == Category.ELECTRONIC_PRODUCT) {
@@ -38,12 +46,18 @@ public class ProductManagement {
         product.save();
     }
 
+    /**
+     * Checks if the user is the owner of a given product.
+     */
     public void isProductOwner(int userId, Product product) throws Exception {
         if (product.getUserId() != userId) {
             throw new Exception("You are not the owner of this product");
         }
     }
 
+    /**
+     * Lists all products from different categories, sorted by ID.
+     */
     private List<Product> listProducts() {
         List<Product> allProducts = new ArrayList<>();
 
@@ -54,22 +68,38 @@ public class ProductManagement {
         return allProducts;
     }
 
+    /**
+     * Lists all book products.
+     */
     private List<Product> listBookProducts() {
         return BookProduct.list();
     }
 
+    /**
+     * Lists all electronic products.
+     */
     private List<Product> listElectronicProducts() {
         return ElectronicProduct.list();
     }
 
+
+    /**
+     * Lists all musical products.
+     */
     private List<Product> listMusicalProducts() {
         return MusicalProduct.list();
     }
 
+    /**
+     * Checks if a product is available (stock > 0).
+     */
     private static boolean isAvailable(Product p) {
         return p.getStock() > 0;
     }
 
+    /**
+     * Filters a list of products based on some filters (for now just price [min, max])
+     */
     private static List<Product> filterProducts(List<Product> products, Map<String, String> filters) {
         List<Product> filteredProducts = new ArrayList<>();
         for (Product product : products) {
@@ -80,6 +110,9 @@ public class ProductManagement {
         return filteredProducts;
     }
 
+    /**
+     * Searches for products by category and applies filters.
+     */
     public void searchByCategory(Category category, Map<String, String> filters) {
         List<Product> products = new ArrayList<>();
         if (category == Category.ELECTRONIC_PRODUCT) {
@@ -106,6 +139,9 @@ public class ProductManagement {
         }
     }
 
+    /**
+     * Searches for products by name and applies filters.
+     */
     public void searchByName(String name, Map<String, String> filters) {
         List<Product> products = listProducts();
         if (!filters.containsKey("minPrice")) {
@@ -127,6 +163,9 @@ public class ProductManagement {
         }
     }
 
+    /**
+     * Searches for products by brand and applies filters.
+     */
     public void searchByBrand(String name, Map<String, String> filters) {
         List<Product> products = listProducts();
         if (!filters.containsKey("minPrice")) {

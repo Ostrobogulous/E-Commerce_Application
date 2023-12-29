@@ -23,6 +23,9 @@ public class ShoppingCart {
         return items.isEmpty();
     }
 
+    /**
+     * Gets the quantity of a specific product in the shopping cart.
+     */
     public int getProductQuantity(int productId) {
         if (items.containsKey(productId)) {
             return items.get(productId).getQuantity();
@@ -60,11 +63,15 @@ public class ShoppingCart {
             }
         }
     }
+
     public void clear() {
         items.clear();
         System.out.println("Your shopping cart is now empty");
     }
 
+    /**
+     * Calculates the total price of all items in the shopping cart.
+     */
     public double calculateTotalPrice() {
         double totalPrice = 0;
         for (ProductItem item : items.values()) {
@@ -73,6 +80,9 @@ public class ShoppingCart {
         return totalPrice;
     }
 
+    /**
+     * Performs the checkout process, including payment processing and updating product quantities.
+     */
     public void checkout(PaymentStrategy method) throws Exception {
         assert method != null;
         processPayment(method);
@@ -85,6 +95,9 @@ public class ShoppingCart {
         }
     }
 
+    /**
+     * Processes the payment for the items in the shopping cart using the specified payment method.
+     */
     public void processPayment(PaymentStrategy method) throws Exception {
         double totalPrice = calculateTotalPrice();
         method.processPayment(totalPrice);

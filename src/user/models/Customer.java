@@ -34,6 +34,9 @@ public class Customer extends User {
         shoppingCart.addItem(item);
     }
 
+    /**
+     * Retrieves the list of orders placed by the customer.
+     */
     public List<Order> getOrders() {
         Connection connection = db.DatabaseUtils.getDbConnection();
         List<Order> orders = new ArrayList<>();

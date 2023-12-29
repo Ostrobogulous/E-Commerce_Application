@@ -64,6 +64,9 @@ public class User {
                 data.get("email"), data.get("password"), data.get("role"));
     }
 
+    /**
+     * Saves the user data to the database.
+     */
     public void save() {
         Connection connection = db.DatabaseUtils.getDbConnection();
         try {
@@ -95,6 +98,9 @@ public class User {
 
     }
 
+    /**
+     * Retrieves a user from the database based on the provided email.
+     */
     public static User get(String email) throws Exception {
         Connection connection = db.DatabaseUtils.getDbConnection();
         try {
@@ -112,7 +118,9 @@ public class User {
         throw new Exception("User with this email not found");
     }
 
-
+    /**
+     * Creates a User instance from the result set obtained from the database.
+     */
     private static User createUserFromResultSet(ResultSet resultSet) throws SQLException {
         return new User(resultSet.getInt("id"), resultSet.getString("first_name"), resultSet.getString("last_name"),
                 resultSet.getString("email"), resultSet.getString("password"), resultSet.getString("role"));

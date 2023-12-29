@@ -58,6 +58,9 @@ public class Order {
         System.out.println("Total Price: " + totalPrice + "$");
     }
 
+    /**
+     * Saves the order details to the database.
+     */
     public void save() {
         Connection connection = db.DatabaseUtils.getDbConnection();
         try {

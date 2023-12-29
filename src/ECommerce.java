@@ -42,7 +42,6 @@ public class ECommerce {
         System.out.println();
     }
 
-
     private static void displaySellerMenu() {
         System.out.println("-------------Seller Menu-------------");
         for (SellerChoice choice : SellerChoice.values()) {
@@ -51,6 +50,9 @@ public class ECommerce {
         System.out.println();
     }
 
+    /**
+     * Pauses execution for a short duration.
+     */
     public static void sleep() {
         try {
             Thread.sleep(1000);
@@ -59,11 +61,17 @@ public class ECommerce {
         }
     }
 
+    /**
+     * Main method to start the ECommerce application.
+     */
     public static void main(String[] args) {
         ECommerce eCommerce = new ECommerce();
         eCommerce.run();
     }
 
+    /**
+     * Main loop to run the ECommerce application.
+     */
     private void run() {
         System.out.println("Welcome to E-Commerce Application!");
         while (true) {
@@ -85,6 +93,10 @@ public class ECommerce {
         }
     }
 
+    /**
+     * Runs the seller-specific menu options.
+     * Handles exceptions to prevent the program from pausing.
+     */
     private void runSellerMenu() {
         while (true) {
             System.out.println();
@@ -119,6 +131,10 @@ public class ECommerce {
         }
     }
 
+    /**
+     * Runs the customer-specific menu options.
+     * Handles exceptions to prevent the program from pausing.
+     */
     private void runCustomerMenu() {
         while (true) {
             System.out.println();

@@ -36,7 +36,7 @@ public class DatabaseUtils {
 
     public static void initDb() {
         String databaseUrl = "jdbc:sqlite:instance/eCommerceDatabase.db";
-        String sqlFilePath = "src/schema.sql";
+        String sqlFilePath = "src/db/schema.sql";
         try {
             Class.forName("org.sqlite.JDBC");
 
