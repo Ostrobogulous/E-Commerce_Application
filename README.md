@@ -59,7 +59,7 @@ Central class for managing product-related operations, such as listing, searchin
 Handles user-related functionalities, including login, logout, user creation, and shopping cart management.
 
 ## Diagram
-![ecommerce light](https://github.com/Ostrobogulous/E-Commerce_Application/assets/73111142/875c332d-492c-4c96-a9d2-cdc9dfe408f3)
+<img width="1920" alt="ecommerce diagram" src="https://github.com/Ostrobogulous/E-Commerce_Console_Application/assets/73111142/db206c57-6fc1-4462-9a68-19c78872faaa">
 
 ---
 
