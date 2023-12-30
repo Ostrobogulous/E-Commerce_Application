@@ -24,11 +24,20 @@ import utils.Helper;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Main class representing an E-commerce system.
+ */
 public class ECommerce {
+    // Components for user and product management
     UserManagement userManagement;
     ProductManagement productManagement;
 
+    /**
+     * Constructor to initialize UserManagement and ProductManagement instances.
+     * UserManagement manages user-related operations such as user creation, login, and shopping cart handling.
+     * ProductManagement manages product-related operations such as adding, updating, deleting,
+     * and searching for products based on different criteria.
+     */
     ECommerce() {
         userManagement = new UserManagement();
         productManagement = new ProductManagement();
@@ -52,6 +61,8 @@ public class ECommerce {
 
     /**
      * Pauses execution for a short duration.
+     * This method is designed for creating a brief pause, allowing time for visual
+     * effects or user interaction before proceeding with the next operation.
      */
     public static void sleep() {
         try {
