@@ -58,6 +58,14 @@ public class Order {
         System.out.println("Total Price: " + totalPrice + "$");
     }
 
+    public void displayInfo(String username) throws Exception{
+        Product product = Product.getProductById(productId);
+        System.out.println("Product: " + product.getName() + " | " + product.getCategory());
+        System.out.println("Buyer: " + username);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Total Price: " + totalPrice + "$");
+    }
+
     /**
      * Saves the order details to the database.
      */

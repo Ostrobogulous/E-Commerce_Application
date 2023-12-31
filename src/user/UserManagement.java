@@ -256,6 +256,23 @@ public class UserManagement {
     }
 
     /**
+     * Displays the sales of the logged-in seller.
+     */
+    public void viewSales() throws Exception {
+        List<Order> sales = ((Seller) user).getSales();
+        if (sales.isEmpty()) {
+            System.out.println("You have no sales yet.");
+            return;
+        }
+        System.out.println("Your sales:");
+        for (Order order : sales) {
+            String username = User.getUsername(order.getUserId());
+            order.displayInfo(username);
+            System.out.println();
+        }
+    }
+
+    /**
      * Checks out the shopping cart of the logged-in customer using the specified payment method.
      */
     public void checkoutShoppingCart(PaymentStrategy method) throws Exception {

@@ -119,6 +119,25 @@ public class User {
     }
 
     /**
+     * Retrieves username from the database using the id
+     */
+    public static String getUsername(int userId) {
+        Connection connection = db.DatabaseUtils.getDbConnection();
+        try {
+            String query = "SELECT first_name, last_name FROM user WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getString("first_name") + " " + resultSet.getString("last_name");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * Creates a User instance from the result set obtained from the database.
      */
     private static User createUserFromResultSet(ResultSet resultSet) throws SQLException {

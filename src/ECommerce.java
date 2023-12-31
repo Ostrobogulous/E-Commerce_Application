@@ -126,6 +126,7 @@ public class ECommerce {
                     case CREATE_PRODUCT -> handleCreateProduct();
                     case UPDATE_PRODUCT -> handleUpdateProduct();
                     case DELETE_PRODUCT -> handleDeleteProduct();
+                    case VIEW_SALES -> handleViewSales();
                     case LOGOUT -> handleLogout();
                     case GO_BACK -> {
                         handleLogout();
@@ -354,6 +355,10 @@ public class ECommerce {
 
     public void handleViewOrders() throws Exception {
         userManagement.viewOrders();
+    }
+
+    public void handleViewSales() throws Exception {
+        userManagement.viewSales();
     }
 
 }

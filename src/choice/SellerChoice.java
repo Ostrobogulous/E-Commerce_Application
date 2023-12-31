@@ -9,6 +9,7 @@ public enum SellerChoice {
     CREATE_PRODUCT("Create Product", "Add a new product", true),
     UPDATE_PRODUCT("Update Product", "Update one of your products", true),
     DELETE_PRODUCT("Delete Product", "Delete one of your products", true),
+    VIEW_SALES("View Sales", "Track the sales of your products", true),
     GO_BACK("Go Back", "Go back to the main menu", false);
 
     private final String choiceName;
